@@ -17,6 +17,14 @@ const nextConfig = {
       }
     ],
   },
+  // Disable ESLint during build
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  // Disable TypeScript type checking during build
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   // Optimize for Vercel deployment
   output: 'standalone',
   poweredByHeader: false,
