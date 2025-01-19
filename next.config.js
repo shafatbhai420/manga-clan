@@ -20,10 +20,7 @@ const nextConfig = {
   // Optimize for Vercel deployment
   output: 'standalone',
   poweredByHeader: false,
-  reactStrictMode: true,
-  swcMinify: true,
-  // Handle trailing slashes consistently
-  trailingSlash: false,
+  reactStrictMode: true
 }
 
 module.exports = nextConfig
