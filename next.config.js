@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['avt.mkklcdnv6temp.com', 's4.anilist.co'],
+    unoptimized: true,
+    domains: ['avt.mkklcdnv6temp.com', 's4.anilist.co', 'mangabat-beta.vercel.app'],
     remotePatterns: [
       {
         protocol: 'https',
