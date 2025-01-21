@@ -56,7 +56,6 @@ export default function HeroSection({ mangas }: HeroSectionProps) {
     setCurrentIndex((prev) => (prev - 1 + mangas.length) % mangas.length);
   }, [mangas.length]);
 
-  // Auto-slide functionality
   useEffect(() => {
     if (!isPaused) {
       const timer = setInterval(() => {
@@ -96,6 +95,7 @@ export default function HeroSection({ mangas }: HeroSectionProps) {
               src={currentManga.anilistBanner || currentManga.imageUrl}
               alt={currentManga.title}
               className="w-full h-full object-cover object-center opacity-80"
+              loading="lazy"
             />
           </div>
 
@@ -114,6 +114,7 @@ export default function HeroSection({ mangas }: HeroSectionProps) {
                       src={currentManga.anilistPoster || currentManga.imageUrl}
                       alt={currentManga.title}
                       className="w-full h-full object-cover rounded-lg shadow-xl"
+                      loading="lazy"
                     />
                   </div>
 
@@ -175,6 +176,7 @@ export default function HeroSection({ mangas }: HeroSectionProps) {
                       src={currentManga.anilistPoster || currentManga.imageUrl}
                       alt={currentManga.title}
                       className="w-full h-full object-cover rounded-lg shadow-xl"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -194,33 +196,31 @@ export default function HeroSection({ mangas }: HeroSectionProps) {
         </motion.div>
       </AnimatePresence>
 
-      {/* Navigation Arrows - Adjusted positioning */}
+      {/* Navigation Arrows */}
       <div className="absolute bottom-4 right-4 flex gap-1.5 sm:gap-2 z-30">
         <button 
           onClick={() => {
             setIsPaused(true);
             handlePrevious();
           }}
-          className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 flex items-center justify-center 
-            rounded-full bg-white/90 hover:bg-white transition-all duration-200
-            hover:scale-105 active:scale-95"
-          aria-label="Previous"
+          className="p-1.5 sm:p-2 rounded-lg bg-black/50 backdrop-blur-sm text-white/90 
+            hover:bg-black/70 hover:text-white transition-all"
+          aria-label="Previous slide"
         >
-          <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-900" />
+          <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
         <button 
           onClick={() => {
             setIsPaused(true);
             handleNext();
           }}
-          className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 flex items-center justify-center 
-            rounded-full bg-white/90 hover:bg-white transition-all duration-200
-            hover:scale-105 active:scale-95"
-          aria-label="Next"
+          className="p-1.5 sm:p-2 rounded-lg bg-black/50 backdrop-blur-sm text-white/90 
+            hover:bg-black/70 hover:text-white transition-all"
+          aria-label="Next slide"
         >
-          <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-900" />
+          <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
       </div>
     </section>
   );
-} 
+}
