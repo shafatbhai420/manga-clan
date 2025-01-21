@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -62,15 +61,15 @@ export default function MangaCard({ manga, priority = false }: MangaCardProps) {
             className="relative w-[120px] h-[170px] sm:w-[140px] sm:h-[200px] flex-shrink-0"
           >
             {imgSrc ? (
-              <Image
-                src={imgSrc}
-                alt={manga.title}
-                fill
-                loading="lazy"
-                className="object-cover rounded-md"
-                sizes="(max-width: 640px) 120px, 140px"
-                onError={handleImageError}
-              />
+              <div className="relative w-full h-full">
+                <img
+                  src={imgSrc}
+                  alt={manga.title}
+                  className="absolute inset-0 w-full h-full object-cover rounded-md"
+                  onError={handleImageError}
+                  loading="lazy"
+                />
+              </div>
             ) : (
               <div className="w-full h-full bg-gray-700 rounded-md flex items-center justify-center">
                 <span className="text-gray-500 text-xs sm:text-sm">No Image</span>
@@ -148,4 +147,4 @@ export default function MangaCard({ manga, priority = false }: MangaCardProps) {
       </div>
     </div>
   );
-} 
+}
